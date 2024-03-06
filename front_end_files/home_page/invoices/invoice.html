@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Qwitcher+Grypen&display=swap" rel="stylesheet">
+
+
+    <!-- CSS file link -->
+    <link type="text/css" rel="stylesheet" href="./invoice_style.css">
+
+    <!-- Bootstrap CSS and Javascript links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-light">
+
+    <div class="row home d-flex m-0 p-0">
+
+        <!-- sidebar -->
+        <div id="main-sidebar" class="col-2 sidebar d-flex flex-column px-1 pt-3 text-white bg-dark position-fixed"
+            style="height: 100vh">
+            <a href="../home.html"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="./cse.jpeg" alt="logo" class="cse-logo img-fluid mx-2 d-block" width="50px">
+                <span class="ms-1">
+                    <div class="fs-3 mb-0">CSE Payments</div>
+                    <div class="fs-6 mt-0">Customer Portal</div>
+                </span>
+            </a>
+            <hr>
+            <div class="fs-3">Welcome, Client.Inc</div>
+            <hr>
+            <ul class="nav nav-pills flex-column flex-grow-1 ">
+                <li class="nav-item">
+                    <a href="../home.html" class="nav-link text-white btn btn-dark text-start fs-5" aria-current="page">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-house mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="../../reach_out/reach.html" class="nav-link text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-info-square mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                        Reach Out
+                    </a>
+                </li>
+                <li>
+                    <a href="./invoice.html" class="nav-link active text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-cash mb-1 me-2" viewBox="0 0 16 16">
+                            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                            <path
+                                d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
+                        </svg>
+                        Invocies
+                    </a>
+                </li>
+                <li>
+                    <a href="../payment_history/payment.html" class="nav-link text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-journal-text mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                            <path
+                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                            <path
+                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                        </svg>
+                        Payment History
+                    </a>
+                </li>
+                <li>
+                    <a href="../accountStatement/account_statement.html"
+                        class="nav-link text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-bank mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z" />
+                        </svg>
+                        Account Statement
+                    </a>
+                </li>
+                <li class="mb-auto">
+                    <a href="#" class=" nav-link text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-gear mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                            <path
+                                d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                        </svg>
+                        User Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="../../index.html" class="nav-link text-white btn btn-dark text-start fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-door-open mb-1 me-2" viewBox="0 0 16 16">
+                            <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
+                            <path
+                                d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z" />
+                        </svg>
+                        Sign Out
+                    </a>
+                </li>
+            </ul>
+            <!-- <hr> -->
+            <!-- <div class="dropup d-flex justify-content-center">
+                <img src="https://github.com/mdo.png" alt="" width="48" height="48" class="rounded-circle me-2">
+
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item fs-4" href="#">Settings</a></li>
+                    <li><a class="dropdown-item fs-4" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item fs-4" href="#">Sign out</a></li>
+                </ul>
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <span class="fs-3"><strong>mdo</strong></span>
+                </a>
+
+            </div> -->
+        </div>
+
+        <!-- Main bar -->
+        <div id="main-bar" class="col-10 ms-auto main-body bg-light d-flex flex-column my-1">
+
+            <!-- Header section -->
+            <div class="bg-white border border-2 rounded shadow-sm mb-1 py-3">
+
+                <div class="d-flex align-items-center align-content-center">
+                    <a role="button" class="ms-1 p-3 btn btn-outline-secondary border-0 input-group-text"
+                        onclick="sidebar_open_close(this);">
+
+                        <div class="d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="d-none"
+                                viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="ms-1"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <h2 class="client-title me-2 ms-2">Client.Inc</h2>
+                    <h5 class="me-auto fw-light mt-2">Invoices</h5>
+                    <a href="../../reach_out/reach.html" class="me-3 link-body-emphasis">Need Help?</a>
+                </div>
+
+            </div>
+
+            <!-- subheader section -->
+            <div class="bg-white border border-2 rounded shadow-sm mb-1 py-3">
+
+                <div class="container px-5 py-3 d-flex flex-column align-items-center">
+                    <div class="w-100 d-flex justify-content-start fs-4 mb-3">Balance: $13,248</div>
+                    <div class="w-100 row d-flex justify-content-center">
+                        <div class="col-7 ps-0 d-flex flex-column">
+                            <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$7,000</span><span
+                                    class="mt-2">over due</span></div>
+                            <a id="over-due-bar" type="button" class="over-due d-flex w-100 rounded"
+                                style="background-color: orange; height: 1.5rem;" onclick="statusChange(this)"></a>
+                        </div>
+                        <div class="col-4 d-flex flex-column">
+                            <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$4,000</span><span
+                                    class="mt-2">Not due</span></div>
+                            <a id="not-due-bar" type="button" class="not-due d-flex w-100 rounded"
+                                style="background-color: gray; height: 1.5rem;" onclick="statusChange(this)"></a>
+                        </div>
+                        <div class="col-1 d-flex flex-column">
+                            <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$2,248</span><span
+                                    class="mt-2">Paid</span></div>
+                            <a id="paid-bar" type="button" class="paid d-flex w-100 rounded"
+                                style="background-color: lightgreen; height: 1.5rem;" onclick="statusChange(this)"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Invoices dropdown-->
+            <!-- <div class=" bg-white border border-2 rounded shadow-sm">
+                <div class="mx-5 mt-5 mb-3">
+                    <div class="mx-4 d-flex">
+                        <div class="row w-100">
+                            <div class="col-5">
+                                <h6 class="ms-5 mb-0 fw-lighter">Invoiced Items</h6>
+                            </div>
+                            <div class="download-pdf fw-lighter col d-flex justify-content-center">download pdf</div>
+                            <div class="due-date fw-lighter col d-flex justify-content-center">due date</div>
+                            <div class="invoice-amount fw-lighter col d-flex justify-content-center">invoice amount
+                            </div>
+                            <div class="invoice-status fw-lighter col d-flex justify-content-center">invoice status
+                            </div>
+                        </div>
+                        <div class="nothing"></div>
+                    </div>
+                </div>
+                <div class="accordion mx-5 mb-5 shadow" id="accordionExample">
+                    <div class="accordion-item" style="background-color: aqua">
+                        <h2 class="accordion-header" id="headingOne">
+                            <div class="d-flex mx-3 py-3 align-items-center justify-content-between">
+                                <div class="row w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Invoiced Item #1</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                        <a href="../../docs/Invoice_INV21443_from_Computer_Solutions_East_Inc.pdf">
+                                            <h6>pdf</h6>
+                                        </a>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">
+                                        <h6 class="fw-normal">12/12/2023</h6>
+                                    </div>
+                                    <div class="invoice-amount col d-flex justify-content-center">
+                                        <h6 class="fw-normal">$2,000</h6>
+                                    </div>
+                                    <div class="invoice-status col d-flex justify-content-center">
+                                        <h6 class="fw-normal">Unpaid</h6>
+                                    </div>
+                                </div>
+                                <a class=" ms-3 me-1 mb-0 d-flex align-items-center align-content-center justify-content-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body border-top" style="background-color: cornsilk">
+                                <div class="main_r row mt-3">
+                                    <div class="col-4 d-flex justify-content-center mb-3">
+                                        <button class="btn btn-outline-success my-3 px-5">
+                                            <h3>Pay Now</h3>
+                                        </button>
+                                    </div>
+                                    <div class="col-8 d-flex">
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">From: </h6>
+                                            <h6 class="amount"><b>Computer Solutions East, Inc.</b><br>
+                                                481 Main Street, Suite 100
+                                                New Rochelle, NY 10801<br>
+                                                +1 9148934076<br>
+                                                bills@computersolutionseast.com<br>
+                                                www.computersolutionseast.com</h6>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">Client: </h6>
+                                            <h6 class="amount"><b>SkyTerra Technologies, LLC</b><br>
+                                                402 Amherst Street Suite 303
+                                                Nashua, NH 03063 US</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main_r row mb-3">
+                                    <div class="col-4">
+                                        <div class="d-flex flex-column justify-content-center mb-3">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice dates</h6>
+                                            <h6 class="amount text-center">11/12/2023 - 12/12/2023</h6>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice number</h6>
+                                            <h6 class="amount text-center">#PD1224</h6>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-8 d-flex flex-column justify-content-center">
+
+                                        <h6 class="sub-title fw-lighter text-left"><b>Description: </b>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi placeat
+                                            doloribus laboriosam eos sit quisquam deserunt, veniam ipsam enim, quae
+                                            illum fugiat! Recusandae ducimus expedita, iusto officiis fugit
+                                            asperiores mollitia!
+                                        </h6>
+
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Price Description</h3>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Variable Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Variable Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Quantity
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Rate
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Support</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">6
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">$2,500</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$15,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $15,000</div>
+                                </div>
+
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Fixed Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Fixed Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">abc</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$5,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $5,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Taxes and Discounts</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Tax / Discounts</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Percentage
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">IVA</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">10%</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$2,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $2,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Total Invoiced</h3>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Invoiced</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $22,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Paid</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">$20,000</div>
+                                    </div>
+                                    <div class="vr mb-2 mt-2"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Remaining
+                                            Balance</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $2,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" style="background-color: aqua">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <div class="d-flex mx-3 py-3 align-items-center justify-content-between">
+                                <div class="row w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Invoiced Item #2</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                        <a href="../../docs/Invoice_INV21443_from_Computer_Solutions_East_Inc.pdf">
+                                            <h6>pdf</h6>
+                                        </a>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">
+                                        <h6 class="fw-normal">12/12/2023</h6>
+                                    </div>
+                                    <div class="invoice-amount col d-flex justify-content-center">
+                                        <h6 class="fw-normal">$2,000</h6>
+                                    </div>
+                                    <div class="invoice-status col d-flex justify-content-center">
+                                        <h6 class="fw-normal">Unpaid</h6>
+                                    </div>
+                                </div>
+                                <a class=" ms-3 me-1 mb-0 d-flex align-items-center align-content-center justify-content-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                    aria-expanded="true" aria-controls="collapseTwo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body" style="background-color: cornsilk">
+                                <div class="main_r row mt-3">
+                                    <div class="col-4 d-flex justify-content-center mb-3">
+                                        <button class="btn btn-outline-success my-3 px-5">
+                                            <h3>Pay Now</h3>
+                                        </button>
+                                    </div>
+                                    <div class="col-8 d-flex">
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">From: </h6>
+                                            <h6 class="amount"><b>Computer Solutions East, Inc.</b><br>
+                                                481 Main Street, Suite 100
+                                                New Rochelle, NY 10801<br>
+                                                +1 9148934076<br>
+                                                bills@computersolutionseast.com<br>
+                                                www.computersolutionseast.com</h6>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">Client: </h6>
+                                            <h6 class="amount"><b>SkyTerra Technologies, LLC</b><br>
+                                                402 Amherst Street Suite 303
+                                                Nashua, NH 03063 US</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main_r row mb-3">
+                                    <div class="col-4">
+                                        <div class="d-flex flex-column justify-content-center mb-3">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice dates</h6>
+                                            <h6 class="amount text-center">11/12/2023 - 12/12/2023</h6>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice number</h6>
+                                            <h6 class="amount text-center">#PD1224</h6>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-8 d-flex flex-column justify-content-center">
+
+                                        <h6 class="sub-title fw-lighter text-left"><b>Description: </b>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi placeat
+                                            doloribus laboriosam eos sit quisquam deserunt, veniam ipsam enim, quae
+                                            illum fugiat! Recusandae ducimus expedita, iusto officiis fugit
+                                            asperiores mollitia!
+                                        </h6>
+
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Price Description</h3>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Variable Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Variable Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Quantity
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Rate
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Support</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">6
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">$2,500</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$15,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $15,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Fixed Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Fixed Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">abc</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$5,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $5,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Taxes and Discounts</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Tax / Discounts</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Percentage
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">IVA</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">10%</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$2,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $2,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Total Invoiced</h3>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Invoiced</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $22,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Paid</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">$20,000</div>
+                                    </div>
+                                    <div class="vr mb-2 mt-2"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Remaining
+                                            Balance</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $2,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item" style="background-color: aqua">
+                        <h2 class="accordion-header" id="headingThree">
+                            <div class="d-flex mx-3 py-3 align-items-center justify-content-between">
+                                <div class="row w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Invoiced Item #3</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                        <a href="../../docs/Invoice_INV21443_from_Computer_Solutions_East_Inc.pdf">
+                                            <h6>pdf</h6>
+                                        </a>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">
+                                        <h6 class="fw-normal">12/12/2023</h6>
+                                    </div>
+                                    <div class="invoice-amount col d-flex justify-content-center">
+                                        <h6 class="fw-normal">$2,000</h6>
+                                    </div>
+                                    <div class="invoice-status col d-flex justify-content-center">
+                                        <h6 class="fw-normal">Unpaid</h6>
+                                    </div>
+                                </div>
+                                <a class=" ms-3 me-1 mb-0 d-flex align-items-center align-content-center justify-content-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                    aria-expanded="true" aria-controls="collapseThree">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body" style="background-color: cornsilk">
+                                <div class="main_r row mt-3">
+                                    <div class="col-4 d-flex justify-content-center mb-3">
+                                        <button class="btn btn-outline-success my-3 px-5">
+                                            <h3>Pay Now</h3>
+                                        </button>
+                                    </div>
+                                    <div class="col-8 d-flex">
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">From: </h6>
+                                            <h6 class="amount"><b>Computer Solutions East, Inc.</b><br>
+                                                481 Main Street, Suite 100
+                                                New Rochelle, NY 10801<br>
+                                                +1 9148934076<br>
+                                                bills@computersolutionseast.com<br>
+                                                www.computersolutionseast.com</h6>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-start ms-2 mb-3">
+                                            <h6 class="sub-title fw-lighter">Client: </h6>
+                                            <h6 class="amount"><b>SkyTerra Technologies, LLC</b><br>
+                                                402 Amherst Street Suite 303
+                                                Nashua, NH 03063 US</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main_r row mb-3">
+                                    <div class="col-4">
+                                        <div class="d-flex flex-column justify-content-center mb-3">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice dates</h6>
+                                            <h6 class="amount text-center">11/12/2023 - 12/12/2023</h6>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="sub-title fw-lighter text-center">Invoice number</h6>
+                                            <h6 class="amount text-center">#PD1224</h6>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-8 d-flex flex-column justify-content-center">
+
+                                        <h6 class="sub-title fw-lighter text-left"><b>Description: </b>
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi placeat
+                                            doloribus laboriosam eos sit quisquam deserunt, veniam ipsam enim, quae
+                                            illum fugiat! Recusandae ducimus expedita, iusto officiis fugit
+                                            asperiores mollitia!
+                                        </h6>
+
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Price Description</h3>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Variable Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Variable Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Quantity
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Rate
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">Support</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">6
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">$2,500</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$15,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $15,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Fixed Cost Items</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Fixed Cost Items</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">abc</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$5,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $5,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h5>Taxes and Discounts</h5>
+                                    </div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0 fw-lighter">Tax / Discounts</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Percentage
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center fw-lighter">Amount</div>
+                                </div>
+                                <div class="main_row row mb-3 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0">IVA</h6>
+                                    </div>
+                                    <div class="download-pdf col d-flex justify-content-center">
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center">10%</div>
+                                    <div class="invoice-amount col d-flex justify-content-center">$2,000</div>
+                                </div>
+                                <div class="main_row row mb-3 mt-5 w-100">
+                                    <div class="col-5">
+                                        <h6 class="ms-5 mb-0"></h6>
+                                    </div>
+                                    <div class="due-date col d-flex justify-content-center"></div>
+                                    <div class="download-pdf col d-flex justify-content-center fw-lighter">Subtotal
+                                    </div>
+                                    <div
+                                        class="invoice-amount col d-flex justify-content-center border-top border-bottom border-2">
+                                        $2,000</div>
+                                </div>
+                                <hr>
+                                <div class="main_row row mb-3">
+                                    <div class="col-12">
+                                        <h3>Total Invoiced</h3>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Invoiced</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $22,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mb-3 mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Total
+                                            Paid</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">$20,000</div>
+                                    </div>
+                                    <div class="vr mb-2 mt-2"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="main_row row mt-3 w-100">
+                                        <div class="col-5">
+                                            <h6 class="ms-5 mb-0"></h6>
+                                        </div>
+                                        <div class="due-date col d-flex justify-content-center"></div>
+                                        <div class="download-pdf col d-flex justify-content-center fw-lighter">Remaining
+                                            Balance</div>
+                                        <div class="invoice-amount col d-flex justify-content-center">
+                                            $2,000</div>
+                                    </div>
+                                    <div class="vr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Invoice table -->
+            <div class=" bg-white border border-2 rounded shadow-sm py-5 px-5">
+                <div class="d-flex container mb-3">
+                    <div class="d-flex flex-column align-items-start me-2">
+                        <label class="form-select-label mb-2 fs-6 fw-light" for="invoice-type-filter">Status</label>
+                        <select class="form-select" aria-label="Invoice-type-select" id="invoice-type-filter"
+                            onchange="statusChange(this)">
+                            <option id="not-due-option" value="1" selected>Not Due</option>
+                            <option id="over-due-option" value="2">Over Due</option>
+                            <option id="paid-option" value="3" onclick>Paid</option>
+                            <option id="all-option" value="4">All</option>
+                        </select>
+                    </div>
+                    <div class="d-flex flex-column align-items-start me-2">
+                        <label class="form-select-label mb-2 fs-6 fw-light" for="invoice-date-filter">Date</label>
+                        <select class="form-select" aria-label="Invoice-date-select" id="invoice-date-filter"
+                            onchange="dateChange()">
+                            <option value="1" selected>All</option>
+                            <option value="2">Today</option>
+                            <option value="3">Last Week</option>
+                            <option value="4">Last Month</option>
+                            <option value="5">Last 6 Months</option>
+                            <option value="6">Last 12 Months</option>
+
+                        </select>
+                    </div>
+                    <div class="d-flex flex-column align-items-start justify-content-end w-100 me-2">
+                        <form class="d-flex w-100">
+                            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search"
+                                id="table-search">
+                            <button class="btn btn-primary" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="d-flex dropdown flex-column align-items-start justify-content-end me-2">
+                        <a class="dropdown-gear" type="button" id="table-settings" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" fill="currentColor"
+                                class="bi bi-gear" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                <path
+                                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="table-settings">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="table" aria-label="invoice-table" id="invoice-table">
+                    <div class="table header row align-items-end m-0 sticky-top bg-white"
+                        style="border-bottom: 2px solid black;">
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center pb-2 pt-1">
+                                <a type="button" class="link-body-emphasis link-offset-2 link-underline-opacity-0 
+                                    link-underline-opacity-50-hover link-opacity-50-hover"
+                                    onclick="selectCheckboxClick(this)">Select</a>
+                            </div>
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center">
+                                <span class="me-3 px-0 pb-2 pt-1">Recurring</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill p-0" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center">
+                                <span class="me-3 px-0 pb-2 pt-1">Date</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center px-0">
+                                <span class="me-3 px-0 pb-2 pt-1">Invoice No.</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center">
+                                <span class="me-3 px-0 pb-2 pt-1">Amount</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center">
+                                <span class="me-3 px-0 pb-2 pt-1">Due Date</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center">
+                                <span class="me-3 px-0 pb-2 pt-1">Status</span>
+
+                                <a type="button" class="link-body-emphasis d-flex flex-column p-0"
+                                    onclick="tableColSort(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 10">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col pb-0">
+                            <div class="d-flex justify-content-center pb-3 pt-2">Action</div>
+                        </div>
+                    </div>
+                    <div id="invoice-table-body"></div>
+                </div>
+                <div class="d-flex py-1 justify-content-end align-items-center bg-white sticky-bottom">
+                    <div class="col-5"></div>
+                    <div class=" d-flex justify-content-center p-0 flex-grow-1">
+                        <h4>Total: $</h4><h4 id="amount-sum"></h4>
+                    </div>
+                    <div class=" d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                        <button class="btn btn-dark" type="button" onclick="displayFirst()">First</button> 
+                    </div>
+                    <div class=" d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                        <button class="btn btn-dark " type="button" onclick="displayPrevious()">previous</button>
+                    </div>
+                    <div class=" d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                        <span id="page-number" class="fs-6"></span>
+                    </div>
+                    <div class=" d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                        <button class="btn btn-dark" type="button" onclick="displayNext()">next</button>
+                    </div>
+                    <div class=" d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                        <button class="btn btn-dark" type="button" onclick="displayLast()">Last</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" bg-white border border-2 rounded shadow-sm py-5 px-5">
+                <button class="mx-2 btn btn-primary" onclick="apiCompanyCall()">QuickBooks CompanyInfoAPI Call</button>
+                <button class="mx-2 btn btn-primary" onclick="apiFirstInvoiceCall()">QuickBooks First InvoiceAPI Call</button>
+            
+                <div><code id="company-result"></code></div>
+                <br><br>
+                <div><code id="first-invoice-result"></code></div>
+            </div>
+        </div>
+    </div>
+    <script src="./invoice_main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      if (window.opener) {
+        window.opener.location.href = "/home_page/invoices/invoice.html";
+        window.close();
+      }
+      function apiCompanyCall() {
+        $("#company-result").html("Loading...");
+        $.get("/getCompanyInfo", function (data) {
+          $("#company-result").html(data);
+        });
+      }
+      function apiFirstInvoiceCall() {
+        $("#first-invoice-result").html("Loading...");
+        $.get("/getInvoice", function (data) {
+          $("#first-invoice-result").html(data);
+        });
+      }
+      function apiCreateInvoiceCall() {
+        $("#create-invoice-result").html("Loading...");
+        $.get("/createInvoice", function (data) {
+          $("#create-invoice-result").html(data);
+        });
+      }
+    </script>
+
+</body>
+
+</html>

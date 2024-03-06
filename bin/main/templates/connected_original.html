@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>OAuth2 Sample App - Intuit</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/style.css"
+      th:href="@{css/style.css}"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      if (window.opener) {
+        window.opener.location.href = "/connected";
+        window.close();
+      }
+      function apiCompanyCall() {
+        $("#company-result").html("Loading...");
+        $.get("/getCompanyInfo", function (data) {
+          $("#company-result").html(data);
+        });
+      }
+      function apiFirstInvoiceCall() {
+        $("#first-invoice-result").html("Loading...");
+        $.get("/getInvoice", function (data) {
+          $("#first-invoice-result").html(data);
+        });
+      }
+      function apiCreateInvoiceCall() {
+        $("#create-invoice-result").html("Loading...");
+        $.get("/createInvoice", function (data) {
+          let arr = data.split(" /// ")
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = JSON.parse(arr[i]);
+          }
+          console.log(arr);
+          $("#create-invoice-result").html(data);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <h3>Connected!</h3>
+
+    <div>
+      <button onclick="apiCompanyCall()">QuickBooks CompanyInfoAPI Call</button>
+      <br /><br />
+      <button onclick="apiFirstInvoiceCall()">
+        QuickBooks First InvoiceAPI Call
+      </button>
+      <br /><br />
+      <button onclick="apiCreateInvoiceCall()">
+        QuickBooks Create InvoiceAPI Call
+      </button>
+      <br /><br />
+
+      <div><code id="company-result"></code></div>
+      <br /><br />
+      <div><code id="first-invoice-result"></code></div>
+      <br /><br />
+      <div><code id="create-invoice-result"></code></div>
+    </div>
+  </body>
+</html>

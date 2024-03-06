@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- poppins font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Qwitcher+Grypen&display=swap" rel="stylesheet">
+
+  <!-- CSS file link -->
+  <link type="text/css" rel="stylesheet" href="./style.css">
+
+  <!-- Bootstrap CSS and Javascript links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <!-- Popover stuff -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Enable popovers everywhere
+      $('[data-bs-toggle="popover"]').popover();
+    });
+  </script> -->
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="head d-flex bg-light position-relative z-3 shadow align-item-center w-100">
+
+      <!-- Offcanvas Navbar -->
+      <nav class="navbar navbar-expand-xl bg-light navbar-light me-1" aria-label="main-nav">
+        <div class="con-cus container-cus mx-auto  d-flex align-items-center">
+
+          <!-- Navbar Brand with image and company title -->
+          <a href="#" class="navbar-brand me-auto mr-lg-0 d-flex">
+            <img src="./images/cse.jpeg" alt="logo" class="cse-logo img-fluid mx-2 d-block" width="40px">
+            <span class="comp-title px-2 fs-3 fw-normal">CSE Payments</span>
+          </a>
+
+          <!-- Navbar Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+            aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar content -->
+          <div class="offcanvas offcanvas-start bg-info" id="navbarOffcanvas" aria-labelledby="offcanvas-navbar">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title text-light" id="offcanvas-navbar">Menu</h5>
+              <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+              <!-- Nav Bar Items -->
+              <ul class="navbar-nav justify-content-end flex-grow-1 mr-auto">
+                <a class="nav-item nav-link" aria-current="page" href="#">Dashboard</a>
+
+                <!-- Dropdown Menu -->
+                <li class="dropdown">
+                  <a class="nav-item nav-link dropdown-toggle" href="#" role="link" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Learn
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <a class="nav-item nav-link" href="#">Contact</a>
+                <a class="nav-item nav-link" href="./home_page/home.html">Home</a>
+                <a class="nav-item nav-link" href="./testing/test.html">test</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Search Button -->
+      <!-- Popover implementation for search button -->
+      <div class="input-group-append me-auto my-3">
+        <button class="btn btn-primary search-btn" href="#" id="search-button" aria-describedby="search-tooltip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          <div id="search-tooltip" role="tooltip">
+
+            <!-- Search Bar -->
+            <form class="search-bar form-outline me-auto my-3">
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
+            <div id="search-arrow" data-popper-arrow></div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Login Button -->
+      <!-- Popover implementation for login button -->
+      <button class="login btn btn-outline-warning me-1 my-3" href="#" id="button" aria-describedby="tooltip">
+        Log In</button>
+      <div id="tooltip" role="tooltip">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
+              focus>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Arrow for tooltip -->
+        <div id="arrow" data-popper-arrow></div>
+      </div>
+
+      <!-- Sign Up Button -->
+      <a class="signup btn btn-outline-warning my-3 " href="./signup/signup.html">Sign Up</a>
+
+      <!-- Login / Sign Up Button (Modal connect)-->
+      <a class="signup btn btn-outline-secondary my-3" data-bs-toggle="modal" role="button"
+        data-bs-target="#login-modal" id="login_signup">Login/SignUp</a>
+      
+      {% comment %} Quickbooks button {% endcomment %}
+      <a class="qbo btn btn-outline-secondary my-3" role="button" id="qbo-button" th:onclick="'launchPopup(\'connectToQuickbooks\');'"
+      href="#">Login to Quickbooks!</a>
+
+    </div>
+  </header>
+
+  <!-- Login and Sign up Modal -->
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Login and Sign up Modal header -->
+        <div class="modal-header">
+          <div class="container d-flex justify-content-center">
+
+            <!-- Nav pills for login and sign up navigation -->
+            <nav class="d-flex justify-content-between" aria-label="modal-nav">
+
+              <!-- navbar brand image and title -->
+              <a href="#" class="navbar-brand d-flex align-items-center me-3">
+                <img src="./images/cse.jpeg" alt="logo" class="cse-logo img-fluid mx-2 d-block" height="40px">
+                <span class="comp-title px-2 fs-3 fw-normal">CSE Payments</span>
+              </a>
+
+              <!-- Nav item tabs -->
+              <div class="nav nav-pills" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                  type="button" role="tab" aria-controls="nav-home" aria-selected="true">Login</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                  type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Signup</button>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Close Button -->
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+
+        <div class="tab-content" id="nav-tabContent">
+
+          <!-- Login tab content -->
+          <div class="tab-pane px-2 pt-3 pb-2 fade show active" id="nav-home" role="tabpanel"
+            aria-labelledby="nav-home-tab">
+
+            <!-- Login Form -->
+            <form>
+              <h5 class="ms-3">Login</h5>
+              <div class="modal-body">
+
+                <!-- email Login -->
+                <label class="form-label mb-2" for="email-login-input">Email Address</label>
+                <input class="form-control mb-2" type="email" id="email-login-input" placeholder="enter email" required
+                  minlength="5" maxlength="40">
+
+                <!-- Password Login -->
+                <label class="form-label mb-2" for="password-login-input">Password</label>
+                <div class="input-group-append d-flex mb-3">
+
+                  <!-- Password Input -->
+                  <input class="form-control" type="password" id="password-login-input" placeholder="enter password"
+                    onpaste="return false" ondrop="return false" autocomplete="off" required>
+
+                  <!-- Show/Hide eye -->
+                  <a role="button" class="input-group-text" onclick="password_show_hide(this);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-fill" viewBox="0 0 16 16" id="show_eye">
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path
+                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-slash-fill d-none" viewBox="0 0 16 16" id="hide_eye">
+                      <path
+                        d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                      <path
+                        d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                    </svg>
+                  </a>
+                </div>
+
+                <!-- Remember me Checkbox -->
+                <input class="form-check-input" type="checkbox" value="" id="remember-check">
+                <label class="form-check-label" for="remember-check">
+                  Remember Me
+                </label>
+              </div>
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <div class="container d-flex  justify-content-between align-items-center">
+
+                  <!-- Submit button for login modal -->
+                  <button class="btn btn-outline-success" type="button" onclick="loginSubmit(this)">Login</button>
+
+                  <!-- Forgot Password link to togglable modal -->
+                  <div class="d-flex">
+                    Forgot
+                    <a href="#" class="ms-1" data-bs-target="#forgot_password_modal" data-bs-toggle="modal"
+                      data-bs-dismiss="modal">password?</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Sign Up modal tab -->
+          <div class="tab-pane fade px-2 pt-3 pb-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+            <!-- Sign up form -->
+            <form>
+              <h5 class="ms-3 mb-1">Signup</h5>
+              <div class="modal-body">
+
+                <!-- Email sign up -->
+                <label class="form-label mb-2" for="email-login-input">Email Address</label>
+                <input class="form-control mb-2" type="email" id="email-login-input" placeholder="enter email"
+                  minlength="5" maxlength="40" required>
+
+                <!-- Password signup -->
+                <label class="form-label mb-2" for="password-login-input">Password</label>
+                <div class="input-group-append d-flex mb-3">
+
+                  <!-- Password input signup -->
+                  <input class="form-control" type="password" id="password-login-input" placeholder="enter password"
+                    onpaste="return false" ondrop="return false" autocomplete="off" required>
+
+                  <!-- Show/Hide button -->
+                  <a role="button" class="input-group-text" onclick="password_show_hide(this);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-fill" viewBox="0 0 16 16" id="show_eye">
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path
+                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-slash-fill d-none" viewBox="0 0 16 16" id="hide_eye">
+                      <path
+                        d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                      <path
+                        d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                    </svg>
+                  </a>
+                </div>
+
+                <!-- Confirm Password -->
+                <label class="form-label mb-2" for="password-login-input-confirm">Confirm
+                  Password</label>
+                <div class="input-group-append d-flex mb-3">
+
+                  <!-- Confirm Password input -->
+                  <input class="form-control" type="password" id="password-login-input-confirm"
+                    placeholder="confirm password" onpaste="return false" ondrop="return false" autocomplete="off"
+                    required>
+
+                  <!-- Show/Hide button -->
+                  <a role="button" class="input-group-text" onclick="password_show_hide(this);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-fill" viewBox="0 0 16 16" id="show_eye">
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path
+                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-eye-slash-fill d-none" viewBox="0 0 16 16" id="hide_eye">
+                      <path
+                        d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                      <path
+                        d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+
+                <!-- Sign up Button -->
+                <div class="container d-flex  justify-content-between align-items-center">
+                  <button class="btn btn-outline-success" type="button" onclick="signupSubmit(this)">Signup</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forget Password Modal -->
+  <div class="modal fade" id="forgot_password_modal" tabindex="-1" aria-labelledby="forgot_password_modal_label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <!-- Input label -->
+          <label class="form-label mt-1 mb-0" for="link_email">Input your Email</label>
+
+          <!-- Close Button -->
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="close"></button>
+        </div>
+
+        <!-- Forgot password form -->
+        <form>
+          <div class="modal-body">
+
+            <!-- Email input -->
+            <input class="form-control" id="link_email" type="email" placeholder="email" minlength="5" maxlength="40"
+              required>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+
+            <!-- Submit button for email to receive link -->
+            <button class="btn btn-success" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main role="main" class="main " w-100>
+
+    <!-- Main head content -->
+    <div class="row main-head p-lg-5 mb-xl-4 bg-info text-black justify-content-around position-relative z-1">
+
+      <!-- Main Head Text -->
+      <div class="main-head-text col-lg-5 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-1 p-3 text-center">Welcome to CSE Payments</h1>
+        <p class="fs-4 mb-1 pt-2 pb-4 text-center">Description or Tag</p>
+
+        <!-- Main Head link -->
+        <div class="head-links d-flex flex-row">
+          <a href="./index.html" class="btn btn-primary btn-lg m-4">Learn More</a>
+        </div>
+      </div>
+      <!-- Main Head Image -->
+      <div class="main-head-img col-lg-5 d-flex flex-column justify-content-center align-items-center">
+        <img src="./images/main_phone_img.webp" alt="phone" class="img-fluid mx-auto d-block position-relative z-3">
+      </div>
+
+    </div>
+
+    <!-- Main Body Content Sections-->
+    <!-- Main Body Sec-1 -->
+    <div class="main-body-sec-1 p-lg-5 mb-xl-4 z-2 text-black d-flex flex-row-reverse justify-content-around">
+
+      <!-- Main Body Sec-1 Text -->
+      <div class="main-body-sec-1-text col-lg-5 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-1 p-4 text-center">Welcome to CSE Payments</h1>
+        <p class="fs-4 mb-2 p-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+          voluptatum.</p>
+        <a href="./index.html" class="btn btn-primary btn-lg m-4">Learn More</a>
+      </div>
+
+      <!-- Main Body Sec-1 Image -->
+      <div class="main-body-sec-1-img col-lg-5 d-flex flex-column justify-content-center align-items-center">
+        <img src="./images/main_phone_img.webp" alt="hero" class="img-fluid mx-auto d-block">
+      </div>
+    </div>
+
+    <!-- Main Body Sec-2 -->
+    <div class="main-body-sec-2 bg-light">
+      <div class=" container p-5 m-5 z-2 text-black">
+
+        <!-- Main Body Sec-2 Text -->
+        <div class="main-body-sec-2-text d-flex flex-column text-center">
+          <h1 class="display-1 p-4 text-center">Look At Our Options!</h1>
+          <p class="fs-4 mb-2 p-4 text-center">We have plenty of options</p>
+        </div>
+
+        <!-- Main Body Sec-2 Cards -->
+        <div class="main-body-sec-2-cards d-flex justify-content-center align-items-center">
+          <div class="card mx-2" style="width: 18rem;">
+            <img src="./images/icon_home_budget-01.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Option 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card mx-2" style="width: 18rem;">
+            <img src="./images/icon_home_emoji-01.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Option 2</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card mx-2" style="width: 18rem;">
+            <img src="./images/icon_home_phone-01.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Option 3</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./main.js"></script>
+
+  <!-- Popover Login Screen Jscript -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+  {% comment %} Quickbooks script {% endcomment %}
+  <script>
+    function launchPopup(path) {
+      var win;
+      var checkConnect;
+      var parameters = "location=1,width=800,height=650";
+      parameters += ",left=" + (screen.width - 800) / 2 + ",top=" + (screen.height - 650) / 2;
+      // Launch Popup
+      win = window.open(path, 'connectPopup', parameters);
+    }
+  </script>
+
+  <script>
+    // popper script
+
+    // functions for popover working on click
+
+    // (FOR LOGIN) work function checks for the data-show attribute and if it is not present, 
+    // it makes the tooltip visible on click of button
+    function login_work() {
+
+      //  Make the tooltip visible
+      if (tooltip.getAttribute('data-show') == null) {
+        tooltip.setAttribute('data-show', '');
+
+        // Enable the event listeners
+        popperInstance.setOptions((options) => ({
+          ...options,
+          modifiers: [
+            ...options.modifiers,
+            { name: 'eventListeners', enabled: true },
+          ],
+        }));
+
+        popperInstance.update();
+      } else {
+        login_hide();
+      }
+    }
+
+    // (FOR LOGIN) hides tooltip on click of button
+    function login_hide() {
+      // Hide the tooltip
+      tooltip.removeAttribute('data-show');
+
+      // Disable the event listeners
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: false },
+        ],
+      }));
+    }
+
+    // Script for login button
+    const button = document.querySelector('#button');
+    const tooltip = document.querySelector('#tooltip');
+
+    const popperInstance = Popper.createPopper(button, tooltip, {
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 16],
+          },
+        },
+      ],
+    });
+
+    button.addEventListener("click", login_work);
+
+    // functions for popover working on click
+
+    // (FOR SEARCH) work function checks for the data-show attribute and if it is not present, 
+    // it makes the tooltip visible on click of button
+    function search_work() {
+
+      // Make the tooltip visible
+      if (search_tooltip.getAttribute('data-show') == null) {
+        search_tooltip.setAttribute('data-show', '');
+
+        // Enable the event listeners
+        search_popperInstance.setOptions((options) => ({
+          ...options,
+          modifiers: [
+            ...options.modifiers,
+            { name: 'eventListeners', enabled: true },
+          ],
+        }));
+
+        search_popperInstance.update();
+      } else {
+        search_hide();
+      }
+    }
+
+    // (FOR Search) hides tooltip on click of button
+    function search_hide() {
+      // Hide the tooltip
+      search_tooltip.removeAttribute('data-show');
+
+      // Disable the event listeners
+      search_popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: false },
+        ],
+      }));
+    }
+
+    // Script for search button
+    const search_button = document.querySelector('#search-button');
+    const search_tooltip = document.querySelector('#search-tooltip');
+
+    const search_popperInstance = Popper.createPopper(search_button, search_tooltip, {
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 16],
+          },
+        },
+      ],
+    });
+
+    search_button.addEventListener("click", search_work);
+  </script>
+
+</body>
+
+</html>

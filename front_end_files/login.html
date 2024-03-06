@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- link bootstrap file -->
+    <link type="text/css" rel="stylesheet" href="./signup_style.css">
+
+    <!-- Bootstrap CSS and Javascript links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @media (max-width: 992px) {
+            .main-con {
+                flex-direction: column;
+                align-items: center;
+            }
+            .form-signin {
+                margin-top: 2rem;
+                
+            }
+        }
+    </style>
+
+</head>
+
+<body class="bg-light">
+
+    <!-- Row Container -->
+    <div class="main-con d-flex position-absolute start-50 top-50 translate-middle" style="width: 992px; height: 700px">
+
+        <!-- Image on left for style -->
+        <div class="col bg-info rounded d-flex align-items-center justify-content-center">
+            <img src="./images/main_phone_img.webp" alt="main_phone.webp" class="w-100" style="max-width: 420px;">
+        </div>
+
+        <!-- Form on right -->
+        <div class="col form-signin ms-2 d-flex flex-column w-100 justify-content-center align-items-center" style="max-width: 420px;">
+            <img class="mb-4 d-flex justify-content-center" src="./images/cse.jpeg" alt="logo.jpeg" width="72" height="72">
+            <h1 class="h1 mb-3 font-weight-normal">CSE Payments</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+
+            <!-- Radio check for admin or customer -->
+            <!-- <div class="cus-con d-flex justify-content-center align-items-center">
+                <div class="form-check container client-radio-con mx-2 py-4 border border-2 rounded shadow-sm">
+                    <input class="form-check-input ms-3" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Client
+                    </label>
+                </div>
+                <div class="form-check container client-radio-con mx-2 py-4 border border-2 rounded shadow-sm">
+                    <input class="form-check-input ms-3" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Admin
+                    </label>
+                </div>
+            </div> -->
+
+            <br>
+
+            <!-- Floating email and password for sign up -->
+            <div class="form-floating mb-3 w-100">
+                <input type="email" class="form-control shadow-sm border border-2" id="floatingInput"
+                    placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3 w-100">
+                <input type="password" class="form-control shadow-sm border border-2" id="floatingPassword"
+                    placeholder="Password" required>
+                <label for="floatingPassword">Create a Password</label>
+            </div>
+
+            <!-- Sign Up Button -->
+            <button class="btn btn-lg btn-primary btn-block mt-3 w-100" type="submit">Sign In</button>
+            <p class="mt-5 mb-3 text-muted">© 2023-2024</p>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

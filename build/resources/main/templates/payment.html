@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Qwitcher+Grypen&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS file link -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../static/css/payment.css"
+      th:href="@{css/payment.css}"
+    />
+
+    <!-- Bootstrap CSS and Javascript links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <!-- PAYMENTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+  <body class="bg-light">
+    <div class="row home d-flex m-0 p-0">
+      <!-- sidebar -->
+      <div
+        id="main-sidebar"
+        class="col-2 sidebar d-flex flex-column px-1 pt-3 text-white bg-dark position-fixed"
+        style="height: 100vh"
+      >
+        <a
+          href="/dashboard"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <img
+            src="/images/cse.jpeg"
+            alt="logo"
+            class="cse-logo img-fluid d-block"
+            width="50px"
+          />
+          <span class="">
+            <div
+              class="mb-0 text-center d-flex flex-column align-items-center justify-content-center"
+            >
+              <h5 class="mb-0 fst-italic">Computer Solutions East, Inc</h5>
+            </div>
+          </span>
+        </a>
+
+        <hr />
+        <div id="portal-title" class="fs-4 text-center"></div>
+        <hr />
+        <ul class="nav nav-pills flex-column flex-grow-1">
+          <li class="nav-item">
+            <a
+              href="/dashboard"
+              class="nav-link text-white btn btn-dark text-start fs-5"
+              aria-current="page"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-house mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"
+                ></path>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a
+              href="/connected"
+              class="nav-link text-white btn btn-dark text-start fs-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-cash mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+                <path
+                  d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"
+                ></path>
+              </svg>
+              Invocies
+            </a>
+          </li>
+          <li class="mb-auto">
+            <a
+              href="/payment"
+              class="nav-link active text-white btn btn-dark text-start fs-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-journal-text mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"
+                ></path>
+                <path
+                  d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                ></path>
+                <path
+                  d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                ></path>
+              </svg>
+              Payment History
+            </a>
+          </li>
+          <!-- <li>
+            <a
+              href="../accountStatement/account_statement.html"
+              class="nav-link text-white btn btn-dark text-start fs-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-bank mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"
+                />
+              </svg>
+              Account Statement
+            </a>
+          </li> 
+          <li>
+            <a
+              href="/reach"
+              class="nav-link text-white btn btn-dark text-start fs-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-info-square mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                ></path>
+                <path
+                  d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                ></path>
+              </svg>
+              Reach Out
+            </a>
+          </li>
+          <li class="mb-auto">
+            <a
+              href="#"
+              class="nav-link text-white btn btn-dark text-start fs-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-gear mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"
+                ></path>
+                <path
+                  d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"
+                ></path>
+              </svg>
+              User Settings
+            </a>
+          </li> -->
+          <li>
+            <a
+              class="nav-link text-white btn btn-dark text-start fs-5"
+              onclick="signOut()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-door-open mb-1 me-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"
+                ></path>
+                <path
+                  d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"
+                ></path>
+              </svg>
+              Sign Out
+            </a>
+          </li>
+        </ul>
+        <!-- <hr> -->
+        <!-- <div class="dropup d-flex justify-content-center">
+                <img src="https://github.com/mdo.png" alt="" width="48" height="48" class="rounded-circle me-2">
+
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item fs-4" href="#">Settings</a></li>
+                    <li><a class="dropdown-item fs-4" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item fs-4" href="#">Sign out</a></li>
+                </ul>
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <span class="fs-3"><strong>mdo</strong></span>
+                </a>
+
+            </div> -->
+      </div>
+
+      <!-- main body -->
+      <div id="main-bar" class="col-10 ms-auto main-bar bg-light d-flex my-1">
+        <!-- main -->
+        <div
+          id="main_body"
+          class="w-100 main-body bg-light d-flex flex-column m-0 p-0"
+        >
+          <!-- Header section -->
+          <div class="bg-white border border-2 rounded shadow-sm mb-1 py-3">
+            <div class="d-flex align-items-center align-content-center">
+              <a
+                role="button"
+                class="ms-1 p-3 btn btn-outline-secondary border-0 input-group-text"
+                onclick="sidebar_open_close(this);"
+              >
+                <div class="d-flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    class="d-none"
+                    viewBox="0 0 256 512"
+                  >
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"
+                    />
+                  </svg>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 256 512"
+                  >
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"
+                    />
+                  </svg>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    class="ms-1"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    />
+                  </svg>
+                </div>
+              </a>
+              <h2 id="login-title" class="client-title me-2 ms-2">Client.Inc</h2>
+              <h5 class="me-auto fw-light mt-2">Payment History</h5>
+              <!-- <a href="/reach" class="me-3 link-body-emphasis">Need Help?</a> -->
+            </div>
+          </div>
+
+          <!-- subheader section -->
+          <!-- <div class="bg-white border border-2 rounded shadow-sm mb-1 py-3">
+
+                    <div class="container px-5 py-3 d-flex flex-column align-items-center">
+                        <div class="w-100 d-flex justify-content-start fs-4 mb-3">Balance: $13,248</div>
+                        <div class="w-100 row d-flex justify-content-center">
+                            <div class="col-7 ps-0 d-flex flex-column">
+                                <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$7,000</span><span
+                                        class="mt-2">over due</span></div>
+                                <a id="over-due-bar" type="button" class="over-due d-flex w-100 rounded"
+                                    style="background-color: orange; height: 1.5rem;" onclick="statusChange(this)"></a>
+                            </div>
+                            <div class="col-4 d-flex flex-column">
+                                <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$4,000</span><span
+                                        class="mt-2">Not due</span></div>
+                                <a id="not-due-bar" type="button" class="not-due d-flex w-100 rounded"
+                                    style="background-color: gray; height: 1.5rem;" onclick="statusChange(this)"></a>
+                            </div>
+                            <div class="col-1 d-flex flex-column">
+                                <div class="d-flex w-100 align-items-center mb-4"><span class="fs-3 me-2">$2,248</span><span
+                                        class="mt-2">Paid</span></div>
+                                <a id="paid-bar" type="button" class="paid d-flex w-100 rounded"
+                                    style="background-color: lightgreen; height: 1.5rem;" onclick="statusChange(this)"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> -->
+
+          <!-- Payments table -->
+          <div class="bg-white border border-2 rounded shadow-sm py-5 px-5">
+            <div class="d-flex container mb-3">
+              <div class="d-flex flex-column align-items-start me-2">
+                <label
+                  class="form-select-label mb-2 fs-6 fw-light"
+                  for="payment-type-filter"
+                  >Type</label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Invoice-type-select"
+                  id="payment-type-filter"
+                  onchange="typeChange(this)"
+                >
+                  <option id="all-payments-option" value="0" selected>
+                    All
+                  </option>
+                  <option id="unapplied-option" value="1">Unapplied</option>
+                  <option id="applied-option" value="2" onclick>Applied</option>
+                  <option id="partially-applied-option" value="3">
+                    Partially Applied
+                  </option>
+                </select>
+              </div>
+              <div class="d-flex flex-column align-items-start me-2">
+                <label
+                  class="form-select-label mb-2 fs-6 fw-light"
+                  for="payment-date-filter"
+                  >Date</label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Payment-date-select"
+                  id="payment-date-filter"
+                  onchange="dateChange()"
+                >
+                  <option value="1" selected>All</option>
+                  <option value="2">Today</option>
+                  <option value="3">Last Week</option>
+                  <option value="4">Last Month</option>
+                  <option value="5">Last 6 Months</option>
+                  <option value="6">Last 12 Months</option>
+                </select>
+              </div>
+              <div
+                class="d-flex flex-column align-items-start justify-content-end w-100 me-2"
+              >
+                <form class="d-flex w-100">
+                  <input
+                    class="form-control me-1"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="table-search"
+                  />
+                  <button class="btn btn-primary" type="button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                      />
+                    </svg>
+                  </button>
+                </form>
+              </div>
+              <!-- <div class="d-flex dropdown flex-column align-items-start justify-content-end me-2" >
+                <a
+                  class="dropdown-gear"
+                  type="button"
+                  id="table-settings"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="37"
+                    height="37"
+                    fill="currentColor"
+                    class="bi bi-gear"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"
+                    />
+                    <path
+                      d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"
+                    />
+                  </svg>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="table-settings">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </div> -->
+            </div>
+            <div
+              class="payments-table"
+              aria-label="payment-table"
+              id="payment-table"
+            >
+              <div
+                class="paymentpayment-table-body-table header row align-items-end m-0 sticky-top bg-white"
+                style="border-bottom: 2px solid black"
+              >
+                <div class="col pb-0">
+                  <div class="d-flex justify-content-center pb-2 pt-1">
+                    <a
+                      type="button"
+                      class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-50-hover link-opacity-50-hover"
+                      onclick="selectCheckboxClick(this)"
+                      >Select</a
+                    >
+                  </div>
+                </div>
+                <div class="col pb-0">
+                  <div class="d-flex justify-content-center">
+                    <span class="me-2 px-0 pb-2 pt-1">Transaction No.</span>
+
+                    <a
+                      type="button"
+                      class="link-body-emphasis d-flex flex-column p-0"
+                      onclick="tableColSort(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-up-fill p-0"
+                        viewBox="0 0 16 10"
+                      >
+                        <path
+                          d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="col pb-0">
+                  <div class="d-flex justify-content-center">
+                    <span class="me-2 px-0 pb-2 pt-1">Amount</span>
+
+                    <a
+                      type="button"
+                      class="link-body-emphasis d-flex flex-column p-0"
+                      onclick="tableColSort(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-up-fill"
+                        viewBox="0 0 16 10"
+                      >
+                        <path
+                          d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="col pb-0 px-0">
+                  <div class="d-flex justify-content-center px-0">
+                    <span class="me-2 px-0 pb-2 pt-1">Transaction Date</span>
+
+                    <a
+                      type="button"
+                      class="link-body-emphasis d-flex flex-column p-0"
+                      onclick="tableColSort(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-up-fill"
+                        viewBox="0 0 16 10"
+                      >
+                        <path
+                          d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="col pb-0">
+                  <div class="d-flex justify-content-center">
+                    <span class="me-2 px-0 pb-2 pt-1">Type</span>
+
+                    <a
+                      type="button"
+                      class="link-body-emphasis d-flex flex-column p-0"
+                      onclick="tableColSort(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-up-fill"
+                        viewBox="0 0 16 10"
+                      >
+                        <path
+                          d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="col pb-0">
+                  <div class="d-flex justify-content-center px-0">
+                    <span class="me-2 px-0 pb-2 pt-1">Invoice No.</span>
+
+                    <a
+                      type="button"
+                      class="link-body-emphasis d-flex flex-column p-0"
+                      onclick="tableColSort(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-up-fill"
+                        viewBox="0 0 16 10"
+                      >
+                        <path
+                          d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-down-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div id="customer-action-col" class="col pb-0">
+                  <div class="d-flex justify-content-center pb-3 pt-2">
+                    Action
+                  </div>
+                </div>
+              </div>
+              <div id="payment-table-body"></div>
+            </div>
+            <div
+              class="d-flex py-1 justify-content-end align-items-center bg-white sticky-bottom"
+            >
+              <div class="col-8"></div>
+              <!-- <div class="d-flex justify-content-center p-0 flex-grow-1">
+                <h4>Total: $</h4>
+                <h4 id="amount-sum"></h4>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  onclick="deleteFirstPayment()"
+                >
+                  Delete
+                </button>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-success"
+                  type="button"
+                  onclick="createPayment()"
+                >
+                  Create
+                </button>
+              </div> -->
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-dark"
+                  type="button"
+                  onclick="displayFirst()"
+                >
+                  First
+                </button>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-dark"
+                  type="button"
+                  onclick="displayPrevious()"
+                >
+                  previous
+                </button>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <span id="page-number" class="fs-6"></span>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-dark"
+                  type="button"
+                  onclick="displayNext()"
+                >
+                  next
+                </button>
+              </div>
+              <div class="d-flex justify-content-center p-0 flex-shrink-1 me-2">
+                <button
+                  class="btn btn-dark"
+                  type="button"
+                  onclick="displayLast()"
+                >
+                  Last
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Body -->
+        <!-- <div id="side_body" class="side-body bg-light d-none flex-column w-50 m-1">
+                <div id="test" class="p-3 container border border-2 rounded shadow-sm bg-white">
+                    <div class="side_body_top d-flex justify-content-around mt-3 mb-5">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-bag-check" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z">
+                                </path>
+                                <path
+                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z">
+                                </path>
+                            </svg>
+                        </span>
+                        <h4><b>Payment Order #1001</b></h4>
+                        <span class="text-success">pending</span>
+                    </div>
+
+                    <h5 class="mb-4">Purchase Details</h5>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-0">Invoice Number : </h6>
+                        <p class="fw-lighter mb-0">#PD1224</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <h6 class="mb-0">Date of Transaction : </h6>
+                        <p class="fw-lighter mb-0">18/08/2023</p>
+                    </div>
+                    <h5 class="mb-4">Timeline</h5>
+                    <h5 class="mb-4">Payment Details</h5>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-0">Payment Method : </h6>
+                        <p class="fw-lighter mb-0">Card</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-0">Shipment Price : </h6>
+                        <p class="fw-lighter mb-0">$30.00</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <h6 class="mb-0">Total Price : </h6>
+                        <p class="fw-lighter mb-0">$530.00</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <h5 class="mb-0">Total : </h5>
+                        <p class="fw-lighter mb-0">$560.00</p>
+                    </div>
+                </div>
+            </div> -->
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="../static/js/payment.js"
+      th:src="@{js/payment.js}"
+    ></script>
+  </body>
+</html>

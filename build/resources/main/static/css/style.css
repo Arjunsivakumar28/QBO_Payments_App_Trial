@@ -1,0 +1,148 @@
+
+/* Login tooltip and arrow popover css */
+#tooltip {
+    border: 1px solid #ced4da;
+    background-color: rgb(255, 119, 119);
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    display: none;
+    width: 100%;
+}
+
+#tooltip[data-show] {
+    display: block;
+}
+
+#tooltip::backdrop {
+    background-color: transparent;
+}
+
+#arrow,
+#arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+}
+
+#arrow {
+    visibility: hidden;
+}
+
+#arrow::before {
+    visibility: visible;
+    content: '';
+    transform: rotate(45deg);
+}
+
+#tooltip[data-popper-placement^='top']>#arrow {
+    bottom: -4px;
+}
+
+#tooltip[data-popper-placement^='bottom']>#arrow {
+    top: -4px;
+}
+
+#tooltip[data-popper-placement^='left']>#arrow {
+    right: -4px;
+}
+
+#tooltip[data-popper-placement^='right']>#arrow {
+    left: -4px;
+}
+
+/* Search tooltip and arrow popover css */
+#search-tooltip {
+    border: 1px solid #ced4da;
+    background-color: rgb(255, 119, 119);
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    display: none;
+    width: 100%;
+}
+
+#search-tooltip[data-show] {
+    display: block;
+}
+
+#search-arrow,
+#search-arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+}
+
+#search-arrow {
+    visibility: hidden;
+}
+
+#search-arrow::before {
+    visibility: visible;
+    content: '';
+    transform: rotate(45deg);
+}
+
+#search-tooltip[data-popper-placement^='top']>#search-arrow {
+    bottom: -4px;
+}
+
+#search-tooltip[data-popper-placement^='bottom']>#search-arrow {
+    top: -4px;
+}
+
+#search-tooltip[data-popper-placement^='left']>#search-arrow {
+    right: -4px;
+}
+
+#search-tooltip[data-popper-placement^='right']>#search-arrow {
+    left: -4px;
+}
+
+.btn-outline-warning {
+    --bs-btn-color: black !important;
+}
+
+.form-control {
+    border-radius: 7px;
+    border: 1.5px solid #E3E6ED;
+}
+
+input.form-control:focus {
+    box-shadow: none;
+    border: 1.5px solid #E3E6ED;
+    background-color: #F7F8FD;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #5878FF !important;
+    border-radius: 7px;
+}
+
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+.dropdown-menu {
+    background-color: orange !important;
+
+}
+
+@media (max-width: 1199.99px) {
+    .con-cus {
+        flex-direction: row-reverse !important;
+    }
+}
+
+@media (max-width: 767.99px) {
+    .main-head {
+        flex-direction: column !important;
+    }
+}

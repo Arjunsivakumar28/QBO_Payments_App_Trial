@@ -1,0 +1,29 @@
+/* h1 {
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Qwitcher Grypen', cursive; */
+/* } */
+
+.alert {
+    animation: 8s linear 0s 1 normal both running animate;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Qwitcher Grypen', cursive; */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Qwitcher Grypen', cursive; */
+} */
+

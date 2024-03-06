@@ -1,0 +1,21 @@
+.warning-invoices {
+    cursor: pointer;
+}
+
+.recent-payments {
+    cursor: pointer;
+}
+
+.alert {
+    animation: 8s linear 0s 1 normal both running animate;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
